@@ -1,6 +1,5 @@
 local gpu_adapters = require('utils.gpu_adapter')
-local backdrops = require('utils.backdrops')
-local colors = require('colors.custom')
+-- local backdrops = require('utils.backdrops')
 
 return {
    animation_fps = 165,
@@ -11,16 +10,16 @@ return {
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
 
    -- color scheme
-   colors = colors,
+   color_scheme = 'Gruvbox dark, medium (base16)',
 
-   -- background
-   background = backdrops:create_opts(),
+   -- -- background
+   -- background = backdrops:create_opts(),
 
    -- scrollbar
-   enable_scroll_bar = true,
+   enable_scroll_bar = false,
 
    -- tab bar
-   enable_tab_bar = true,
+   enable_tab_bar = false,
    hide_tab_bar_if_only_one_tab = false,
    use_fancy_tab_bar = false,
    tab_max_width = 25,
@@ -29,10 +28,10 @@ return {
 
    -- window
    window_padding = {
-      left = 0,
-      right = 0,
-      top = 10,
-      bottom = 7.5,
+      left = '0.5cell',
+      right = '0.5cell',
+      top = 0,
+      bottom = 0,
    },
    adjust_window_size_when_changing_font_size = false,
    window_close_confirmation = 'NeverPrompt',

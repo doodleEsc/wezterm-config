@@ -244,7 +244,10 @@ return {
    disable_default_key_bindings = true,
    -- disable_default_mouse_bindings = true,
    leader = { key = 'Space', mods = mod.SUPER_REV },
-   keys = keys,
+   keys = {
+      { key = 'F11', mods = 'NONE', action = act.ToggleFullScreen },
+      { key = 'V', mods = 'CTRL', action = wezterm.action.PasteFrom('Clipboard') },
+   },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
 }
