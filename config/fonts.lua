@@ -4,7 +4,7 @@ local platform = require('utils.platform')
 -- local font = 'Maple Mono SC NF'
 local font_family = 'Hack Nerd Font'
 local font_fallback = 'Microsoft YaHei'
-local font_size = platform.is_mac and 12 or 16
+local font_size = platform.is_mac and 17 or 16
 
 return {
    font = wezterm.font_with_fallback({ font_family, font_fallback }),
