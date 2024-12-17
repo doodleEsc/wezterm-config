@@ -5,13 +5,15 @@ local act = wezterm.action
 
 local mod = {}
 
-if platform.is_mac then
-   mod.SUPER = 'SUPER'
-   mod.SUPER_REV = 'SUPER|CTRL'
-elseif platform.is_win or platform.is_linux then
-   mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
-   mod.SUPER_REV = 'ALT|CTRL'
-end
+mod.SUPER = 'SUPER'
+mod.SUPER_REV = 'SUPER|CTRL'
+-- if platform.is_mac then
+--    mod.SUPER = 'SUPER'
+--    mod.SUPER_REV = 'SUPER|CTRL'
+-- elseif platform.is_win or platform.is_linux then
+--    mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
+--    mod.SUPER_REV = 'ALT|CTRL'
+-- end
 
 -- stylua: ignore
 local keys = {
@@ -247,7 +249,7 @@ return {
    keys = {
       { key = 'F11', mods = 'NONE', action = act.ToggleFullScreen },
       { key = 'v', mods = mod.SUPER, action = wezterm.action.PasteFrom('Clipboard') },
-      { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
+      -- { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
    },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
