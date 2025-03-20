@@ -248,8 +248,7 @@ return {
    leader = { key = 'Space', mods = mod.SUPER_REV },
    keys = {
       { key = 'F11', mods = 'NONE', action = act.ToggleFullScreen },
-      { key = 'v', mods = mod.SUPER, action = wezterm.action.PasteFrom('Clipboard') },
-      -- { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
+      { key = 'V', mods = 'CTRL', action = wezterm.action.PasteFrom('Clipboard') },
    },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
