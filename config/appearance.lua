@@ -48,4 +48,5 @@ return {
       saturation = 1,
       brightness = 1,
    },
+   enable_wayland = false,
 }
