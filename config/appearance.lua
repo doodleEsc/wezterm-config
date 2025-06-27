@@ -6,8 +6,8 @@ return {
    max_fps = 165,
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_best(),
-   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
+   webgpu_preferred_adapter = gpu_adapters:pick_manual('Vulkan', 'IntegratedGpu'),
 
    -- color scheme
    color_scheme = 'Gruvbox dark, medium (base16)',
