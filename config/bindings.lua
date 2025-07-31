@@ -252,4 +252,6 @@ return {
    },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
+   enable_kitty_keyboard = true,
+   enable_csi_u_key_encoding = true,
 }
