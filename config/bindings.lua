@@ -253,32 +253,8 @@ return {
       { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
       { key = 'v', mods = mod.SUPER, action = act.PasteFrom('Clipboard') },
 
-      {
-         key = '-',
-         mods = mod.SUPER,
-         action = wezterm.action_callback(function(window, _pane)
-            local dimensions = window:get_dimensions()
-            if dimensions.is_full_screen then
-               return
-            end
-            local new_width = dimensions.pixel_width - 50
-            local new_height = dimensions.pixel_height - 50
-            window:set_inner_size(new_width, new_height)
-         end),
-      },
-      {
-         key = '=',
-         mods = mod.SUPER,
-         action = wezterm.action_callback(function(window, _pane)
-            local dimensions = window:get_dimensions()
-            if dimensions.is_full_screen then
-               return
-            end
-            local new_width = dimensions.pixel_width + 50
-            local new_height = dimensions.pixel_height + 50
-            window:set_inner_size(new_width, new_height)
-         end),
-      },
+      { key = '-', mods = mod.SUPER, action = act.DecreaseFontSize },
+      { key = '=', mods = mod.SUPER, action = act.IncreaseFontSize },
    },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
