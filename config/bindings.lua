@@ -243,15 +243,42 @@ local mouse_bindings = {
 }
 
 return {
-   disable_default_key_bindings = false,
+   disable_default_key_bindings = true,
    -- disable_default_mouse_bindings = true,
    leader = { key = 'Space', mods = mod.SUPER_REV },
    keys = {
       { key = 'F11', mods = 'NONE', action = act.ToggleFullScreen },
       { key = 'V', mods = 'CTRL', action = wezterm.action.PasteFrom('Clipboard') },
       -- copy/paste --
-      { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo('Clipboard') },
-      { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
+      { key = 'c', mods = mod.SUPER, action = act.CopyTo('Clipboard') },
+      { key = 'v', mods = mod.SUPER, action = act.PasteFrom('Clipboard') },
+
+      {
+         key = '-',
+         mods = mod.SUPER,
+         action = wezterm.action_callback(function(window, _pane)
+            local dimensions = window:get_dimensions()
+            if dimensions.is_full_screen then
+               return
+            end
+            local new_width = dimensions.pixel_width - 50
+            local new_height = dimensions.pixel_height - 50
+            window:set_inner_size(new_width, new_height)
+         end),
+      },
+      {
+         key = '=',
+         mods = mod.SUPER,
+         action = wezterm.action_callback(function(window, _pane)
+            local dimensions = window:get_dimensions()
+            if dimensions.is_full_screen then
+               return
+            end
+            local new_width = dimensions.pixel_width + 50
+            local new_height = dimensions.pixel_height + 50
+            window:set_inner_size(new_width, new_height)
+         end),
+      },
    },
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
