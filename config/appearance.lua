@@ -2,8 +2,8 @@ local gpu_adapters = require('utils.gpu_adapter')
 -- local backdrops = require('utils.backdrops')
 
 return {
-   animation_fps = 165,
-   max_fps = 165,
+   animation_fps = 10,
+   max_fps = 60,
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
    -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
