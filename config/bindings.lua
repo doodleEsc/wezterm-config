@@ -58,24 +58,7 @@ local keys = {
    { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
 
-   -- tabs --
-   -- tabs: spawn+close
-   { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
-   { key = 'w',          mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
-
-   -- tabs: navigation
-   { key = '[',          mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
-   { key = ']',          mods = mod.SUPER,     action = act.ActivateTabRelative(1) },
-   { key = '[',          mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
-   { key = ']',          mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
-
-   -- tab: title
-   { key = '0',          mods = mod.SUPER,     action = act.EmitEvent('tabs.manual-update-tab-title') },
-   { key = '0',          mods = mod.SUPER_REV, action = act.EmitEvent('tabs.reset-tab-title') },
-
-   -- tab: hide tab-bar
-   { key = '9',          mods = mod.SUPER,     action = act.EmitEvent('tabs.toggle-tab-bar'), },
-
+   
    -- window --
    -- window: spawn windows
    { key = 'n',          mods = mod.SUPER,     action = act.SpawnWindow },
@@ -109,40 +92,6 @@ local keys = {
    },
 
    
-   -- panes --
-   -- panes: split panes
-   {
-      key = [[\]],
-      mods = mod.SUPER,
-      action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
-   },
-   {
-      key = [[\]],
-      mods = mod.SUPER_REV,
-      action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
-   },
-
-   -- panes: zoom+close pane
-   { key = 'Enter', mods = mod.SUPER,     action = act.TogglePaneZoomState },
-   { key = 'w',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
-
-   -- panes: navigation
-   { key = 'k',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
-   { key = 'j',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Down') },
-   { key = 'h',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Left') },
-   { key = 'l',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Right') },
-   {
-      key = 'p',
-      mods = mod.SUPER_REV,
-      action = act.PaneSelect({ alphabet = '1234567890', mode = 'SwapWithActiveKeepFocus' }),
-   },
-
-   -- panes: scroll pane
-   { key = 'u',        mods = mod.SUPER, action = act.ScrollByLine(-5) },
-   { key = 'd',        mods = mod.SUPER, action = act.ScrollByLine(5) },
-   { key = 'PageUp',   mods = 'NONE',    action = act.ScrollByPage(-0.75) },
-   { key = 'PageDown', mods = 'NONE',    action = act.ScrollByPage(0.75) },
-
    -- key-tables --
    -- resizes fonts
    {
@@ -154,17 +103,7 @@ local keys = {
          timemout_miliseconds = 1000,
       }),
    },
-   -- resize panes
-   {
-      key = 'p',
-      mods = 'LEADER',
-      action = act.ActivateKeyTable({
-         name = 'resize_pane',
-         one_shot = false,
-         timemout_miliseconds = 1000,
-      }),
-   },
-}
+   }
 
 -- stylua: ignore
 local key_tables = {
@@ -172,14 +111,6 @@ local key_tables = {
       { key = 'k',      action = act.IncreaseFontSize },
       { key = 'j',      action = act.DecreaseFontSize },
       { key = 'r',      action = act.ResetFontSize },
-      { key = 'Escape', action = 'PopKeyTable' },
-      { key = 'q',      action = 'PopKeyTable' },
-   },
-   resize_pane = {
-      { key = 'k',      action = act.AdjustPaneSize({ 'Up', 1 }) },
-      { key = 'j',      action = act.AdjustPaneSize({ 'Down', 1 }) },
-      { key = 'h',      action = act.AdjustPaneSize({ 'Left', 1 }) },
-      { key = 'l',      action = act.AdjustPaneSize({ 'Right', 1 }) },
       { key = 'Escape', action = 'PopKeyTable' },
       { key = 'q',      action = 'PopKeyTable' },
    },

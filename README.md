@@ -233,7 +233,6 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | <kbd>F1</kbd>                     | `ActivateCopyMode`                          |
 | <kbd>F2</kbd>                     | `ActivateCommandPalette`                    |
 | <kbd>F3</kbd>                     | `ShowLauncher`                              |
-| <kbd>F4</kbd>                     | `ShowLauncher` <sub>(tabs only)</sub>       |
 | <kbd>F5</kbd>                     | `ShowLauncher` <sub>(workspaces only)</sub> |
 | <kbd>F11</kbd>                    | `ToggleFullScreen`                          |
 | <kbd>F12</kbd>                    | `ShowDebugOverlay`                          |
@@ -258,40 +257,6 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | <kbd>SUPER</kbd>+<kbd>LeftArrow</kbd>  | Move cursor to Line Start                                   |
 | <kbd>SUPER</kbd>+<kbd>RightArrow</kbd> | Move cursor to Line End                                     |
 | <kbd>SUPER</kbd>+<kbd>Backspace</kbd>  | Clear Line <sub>(does not work for PowerShell or cmd)</sub> |
-
-&nbsp;
-
-#### Tabs
-
-##### Tabs: Spawn+Close
-
-| Keys                              | Action                                |
-| --------------------------------- | ------------------------------------- |
-| <kbd>SUPER</kbd>+<kbd>t</kbd>     | `SpawnTab` <sub>(DefaultDomain)</sub> |
-| <kbd>SUPER_REV</kbd>+<kbd>f</kbd> | `SpawnTab` <sub>(WSL:Ubuntu)</sub>    |
-| <kbd>SUPER_REV</kbd>+<kbd>w</kbd> | `CloseCurrentTab`                     |
-
-##### Tabs: Navigation
-
-| Keys                              | Action         |
-| --------------------------------- | -------------- |
-| <kbd>SUPER</kbd>+<kbd>[</kbd>     | Next Tab       |
-| <kbd>SUPER</kbd>+<kbd>]</kbd>     | Previous Tab   |
-| <kbd>SUPER_REV</kbd>+<kbd>[</kbd> | Move Tab Left  |
-| <kbd>SUPER_REV</kbd>+<kbd>]</kbd> | Move Tab Right |
-
-##### Tabs: Title
-
-| Keys                          | Action         |
-| ----------------------------- | -------------- |
-| <kbd>SUPER</kbd>+<kbd>9</kbd> | Toggle tab bar |
-
-##### Tabs: Toggle Tab-bar
-
-| Keys                              | Action             |
-| --------------------------------- | ------------------ |
-| <kbd>SUPER</kbd>+<kbd>0</kbd>     | Rename Current Tab |
-| <kbd>SUPER_REV</kbd>+<kbd>0</kbd> | Undo Rename        |
 
 &nbsp;
 

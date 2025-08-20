@@ -5,21 +5,14 @@ return {
    max_fps = 60,
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_manual('Vulkan', 'IntegratedGpu'),
+   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
    -- color scheme
    color_scheme = 'Gruvbox dark, medium (base16)',
 
    -- scrollbar
    enable_scroll_bar = false,
-
-   -- tab bar
-   enable_tab_bar = false,
-   hide_tab_bar_if_only_one_tab = false,
-   use_fancy_tab_bar = false,
-   tab_max_width = 25,
-   show_tab_index_in_tab_bar = false,
-   switch_to_last_active_tab_when_closing_tab = true,
+   hide_tab_bar_if_only_one_tab = true,
 
    -- window
    window_padding = {
