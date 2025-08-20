@@ -1,15 +1,5 @@
 local Config = require('config')
 
--- require('utils.backdrops')
---    :set_files()
---    -- :set_focus('#000000')
---    :random()
-
--- require('events.right-status').setup()
--- require('events.left-status').setup()
--- require('events.tab-title').setup()
--- require('events.new-tab-button').setup()
-
 require('events.start-up').setup()
 
 return Config:init()

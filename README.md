@@ -206,8 +206,7 @@
 
 - ##### Things You Might Want to Change:
 
-  - [./config/domains.lua](./config/domains.lua) for custom SSH/WSL domains
-  - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
+    - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
 
 ---
 

@@ -1,19 +1,14 @@
 local gpu_adapters = require('utils.gpu_adapter')
--- local backdrops = require('utils.backdrops')
 
 return {
    animation_fps = 10,
    max_fps = 60,
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
-   -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
    webgpu_preferred_adapter = gpu_adapters:pick_manual('Vulkan', 'IntegratedGpu'),
 
    -- color scheme
    color_scheme = 'Gruvbox dark, medium (base16)',
-
-   -- -- background
-   -- background = backdrops:create_opts(),
 
    -- scrollbar
    enable_scroll_bar = false,
@@ -37,13 +32,7 @@ return {
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
-      -- font = fonts.font,
-      -- font_size = fonts.font_size,
    },
-   -- inactive_pane_hsb = {
-   --    saturation = 0.9,
-   --    brightness = 0.65,
-   -- },
    inactive_pane_hsb = {
       saturation = 1,
       brightness = 1,
