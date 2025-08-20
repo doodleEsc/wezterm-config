@@ -3,7 +3,7 @@ local platform = require('utils.platform')
 
 local font_family = 'Maple Mono Normal NL NF CN'
 local font_fallback = 'Maple Mono Normal NL NF CN'
-local font_size = platform.is_mac and 17 or 14
+local font_size = 14
 
 return {
    font = wezterm.font_with_fallback({ font_family, font_fallback }),
