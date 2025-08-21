@@ -18,48 +18,38 @@
 
 ### Features
 
-- [**Background Image Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/backdrops.lua)
+- [**GPU Adapter Selector**](https://github.com/doodleEsc/wezterm-config/blob/master/utils/gpu_adapter.lua)
 
-  - Cycle images
-  - Fuzzy search for image
-  - Toggle background image
-
-  > See: [key bindings](#background-images) for usage
-
-- [**GPU Adapter Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/gpu_adapter.lua)
-
-  > :bulb: Only works if the [`front_end`](https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
+  > :bulb: Only works if the [`front_end`](https://github.com/doodleEsc/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
 
   A small utility to select the best GPU + Adapter (graphics API) combo for your machine.
 
   GPU + Adapter combo is selected based on the following criteria:
+  1. <details>
+     <summary>Best GPU available</summary>
 
-  1.  <details>
-      <summary>Best GPU available</summary>
+     `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
+     </details>
 
-      `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
-      </details>
+  2. <details>
+     <summary>Best graphics API available (based off my very scientific scroll a big log file in Neovim test 😁)</summary>
 
-  2.  <details>
-      <summary>Best graphics API available (based off my very scientific scroll a big log file in Neovim test 😁)</summary>
+     > :bulb:<br>
+     > The available graphics API choices change based on your OS.<br>
+     > These options correspond to the APIs the `wgpu` crate (which powers WezTerm's gui in `WebGpu` mode)<br>
+     > currently has support implemented for.<br>
+     > See: <https://github.com/gfx-rs/wgpu#supported-platforms> for more info
+     - Windows: `Dx12` > `Vulkan` > `OpenGl`
+     - Linux: `Vulkan` > `OpenGl`
+     - Mac: `Metal`
 
-      > :bulb:<br>
-      > The available graphics API choices change based on your OS.<br>
-      > These options correspond to the APIs the `wgpu` crate (which powers WezTerm's gui in `WebGpu` mode)<br>
-      > currently has support implemented for.<br>
-      > See: <https://github.com/gfx-rs/wgpu#supported-platforms> for more info
-
-      - Windows: `Dx12` > `Vulkan` > `OpenGl`
-      - Linux: `Vulkan` > `OpenGl`
-      - Mac: `Metal`
-
-      </details>
+     </details>
 
 ---
 
 ### Getting Started
 
-- ##### Requirements:
+- ##### Requirements
 
   - <details>
       <summary><b>WezTerm</b></summary>
@@ -70,16 +60,14 @@
     [Official Installation Page](https://wezfurlong.org/wezterm/installation.html)
 
     **Windows**
-
     - <details>
       <summary>Install Stable</summary>
-
       - Install with Scoop (non-portable)
 
-        ```sh
-        scoop bucket add extras
-        scoop install wezterm
-        ```
+      ```sh
+      scoop bucket add extras
+      scoop install wezterm
+      ```
 
       - Install with Scoop (portable)
 
@@ -99,17 +87,17 @@
         ```sh
         choco install wezterm -y
         ```
-      </details>
+
+        </details>
 
     - <details>
       <summary>Install Nightly</summary>
-
       - Install with Scoop (non-portable)
 
-        ```sh
-        scoop bucket add versions
-        scoop install wezterm-nightly
-        ```
+      ```sh
+      scoop bucket add versions
+      scoop install wezterm-nightly
+      ```
 
       - Install with Scoop (portable)
 
@@ -117,24 +105,23 @@
         scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
         scoop install k/wezterm-nightly
         ```
-      </details>
+
+        </details>
 
     > :bulb:<br>
     > Toast notifications don't work in non-portable installations.<br>
     > See issue <https://github.com/wez/wezterm/issues/5166> for more details
-  
-    ---
+
+    ***
 
     **MacOS**
-
     - <details>
       <summary>Install Stable</summary>
-
       - Install with Homebrew
 
-        ```sh
-        brew install --cask wezterm
-        ```
+      ```sh
+      brew install --cask wezterm
+      ```
 
       - Install with MacPort
 
@@ -142,25 +129,26 @@
         sudo port selfupdate
         sudo port install wezterm
         ```
-      </details>
+
+        </details>
 
     - <details>
       <summary>Install Nighlty</summary>
-
       - Install with Homebrew
 
-        ```sh
-        brew install --cask wezterm@nightly
-        ```
+      ```sh
+      brew install --cask wezterm@nightly
+      ```
 
       - Upgrade with Homebrew
 
         ```sh
         brew install --cask wezterm@nightly --no-quarantine --greedy-latest
         ```
-      </details>
 
-    ---
+        </details>
+
+    ***
 
     **Linux**
 
@@ -190,23 +178,37 @@
     >
     > - <https://www.nerdfonts.com/#home>
     > - <https://github.com/ryanoasis/nerd-fonts?#font-installation>
+
     </details/>
 
 &nbsp;
 
-- ##### Steps:
+- ##### Steps
 
-  1.  ```sh
-      # On Windows and Unix systems
-      git clone https://github.com/KevinSilvester/wezterm-config.git ~/.config/wezterm
-      ```
-  2.  And Done!!! 🎉🎉
+  1. ```sh
+     # On Windows and Unix systems
+     git clone https://github.com/doodleEsc/wezterm-config.git ~/.config/wezterm
+     ```
+
+  2. And Done!!! 🎉🎉
 
 &nbsp;
 
-- ##### Things You Might Want to Change:
+- ##### Things You Might Want to Change
 
-    - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
+  - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
+
+- ##### API Keys and Secrets
+
+  This configuration uses a secrets management system to handle sensitive data like API keys.
+  An example secrets file is automatically generated at `~/.config/wezterm/secrets.example.lua`.
+
+  To use API keys with plugins:
+  1. Copy the example file: `cp ~/.config/wezterm/secrets.example.lua ~/.config/wezterm/secrets.lua`
+  2. Edit `secrets.lua` and replace placeholder values with your actual keys
+  3. Ensure `secrets.lua` is not committed to version control (it's in `.gitignore`)
+
+  The secrets file is loaded at startup and provides secure access to sensitive configuration data.
 
 ---
 
@@ -306,16 +308,6 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | <kbd>PageDown</kbd>           | Scroll Page down                     |
 
 &nbsp;
-
-#### Background Images
-
-| Keys                              | Action                       |
-| --------------------------------- | ---------------------------- |
-| <kbd>SUPER</kbd>+<kbd>/</kbd>     | Select Random Image          |
-| <kbd>SUPER</kbd>+<kbd>,</kbd>     | Cycle to next Image          |
-| <kbd>SUPER</kbd>+<kbd>.</kbd>     | Cycle to previous Image      |
-| <kbd>SUPER_REV</kbd>+<kbd>/</kbd> | Fuzzy select Image           |
-| <kbd>SUPER</kbd>+<kbd>b</kbd>     | Toggle background focus mode |
 
 &nbsp;
 
